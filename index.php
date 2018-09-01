@@ -4,10 +4,6 @@ CheckLogin();
 
 $sesuID = $_SESSION['uID'];
 
-$query = $con->prepare("SELECT * from users where UserID = '$sesuID'");
-$query->execute();
-$gData = $query->fetch();
-
 $motdQuery = $con->prepare("SELECT `companyMOTD`, `companyNotice1`, `companyNotice2`, `companyNotice3` from misc");
 $motdQuery->execute();
 $gMiscData = $motdQuery->fetch();
@@ -744,14 +740,14 @@ if(isset($_POST['name']) && isset($_POST['word']) && isset($_POST['email']))
             <div class="container-fluid">
                 <br>
                 <?php echo "Welcome, ";?>
-                <?php echo $_SESSION['uUsername']; if($gData['Tech'] != 0) echo(" - Tech Administrator");
-                    else if($gData['HumanResources']) echo(" - Human Resources");
-                    else if($gData['Exec']) echo(" - Executives Team");
-                    else if($gData['Animation']) echo(" - Animation Team");
-                    else if($gData['Marketing']) echo(" - Marketing Team");
+                <?php echo $_SESSION['uUsername']; if($_SESSION['uTech'] != 0) echo(" - Tech Administrator");
+                    else if($_SESSION['uHumanResources']) echo(" - Human Resources");
+                    else if($_SESSION['uExec']) echo(" - Executives Team");
+                    else if($_SESSION['uAnimation']) echo(" - Animation Team");
+                    else if($_SESSION['uMarketing']) echo(" - Marketing Team");
                     else echo(" - Contact Tech to setup your department.");
                     echo "<p></p>";
-                    if($gData['OnLeave']) echo ("You're currently on Leave of Absence, if this is an error or you've returned from your absence contact Human Resources.");
+                    if($_SESSION['uOnLeave']) echo ("You're currently on Leave of Absence, if this is an error or you've returned from your absence contact Human Resources.");
                 ?>
                 <p></p>
                 <a class="btn btn-primary" data-toggle="collapse" href="#motdCollapse" role="button" aria-expanded="false" aria-controls="motdCollapse">MOTD</a>

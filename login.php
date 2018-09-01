@@ -11,7 +11,7 @@ if(isset($_POST['uname']) && isset($_POST['pword']))
 {
     if(!isset($_SESSION['uname']))
     {
-        $query = $con->prepare("SELECT `UserID`, `Username`, `Tech`, `Marketing`, `Animation`, `HumanResources`, `Exec` from `users` where `Username` = ? and `Password` = ?");
+        $query = $con->prepare("SELECT `UserID`, `Username`, `Tech`, `Marketing`, `Animation`, `HumanResources`, `Exec`, `OnLeave` from `users` where `Username` = ? and `Password` = ?");
         $query->execute(array($_POST['uname'], strtoupper(hash("whirlpool", $_POST['pword']))));
         if($query->rowCount() > 0)
         {
@@ -24,6 +24,7 @@ if(isset($_POST['uname']) && isset($_POST['pword']))
             $_SESSION['uAnimation'] = $data['Animation'];
             $_SESSION['uHumanResources'] = $data['HumanResources'];
             $_SESSION['uExec'] = $data['Exec'];
+            $_SESSION['uOnLeave'] = $data['OnLeave'];
 
             echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">';  
             exit;
