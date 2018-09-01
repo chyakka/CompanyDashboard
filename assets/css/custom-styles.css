@@ -1,0 +1,204 @@
+div.well{
+  height: 250px;
+} 
+
+.Absolute-Center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.Absolute-Center.is-Responsive {
+  width: 50%; 
+  height: 50%;
+  min-width: 200px;
+  max-width: 400px;
+  padding: 40px;
+}
+
+.login-btn {
+	color: #000;
+}
+
+.main-title {
+  color: #000;
+  font-size: 48px;
+}
+
+label {
+	color: #ccc;
+}
+
+p {
+  color: #000;
+}
+
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+
+body {
+  overflow-x: hidden;
+}
+
+#wrapper {
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#wrapper {
+  padding-left: 250px;
+}
+
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 0;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #232323;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#wrapper #sidebar-wrapper {
+  width: 250px;
+}
+
+#page-content-wrapper {
+  width: 100%;
+  position: absolute;
+  padding: 15px;
+}
+
+#wrapper #page-content-wrapper {
+  position: absolute;
+  margin-right: -250px;
+}
+
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 40px;
+}
+
+.sidebar-nav li a {
+  display: block;
+  text-decoration: none;
+  color: #999999;
+}
+
+.sidebar-nav li a:hover {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav li a:active, .sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav>.sidebar-brand {
+  height: 65px;
+  font-size: 18px;
+  line-height: 60px;
+}
+
+.sidebar-nav>.sidebar-brand a {
+  color: #999999;
+}
+
+.sidebar-nav>.sidebar-brand a:hover {
+  color: #fff;
+  background: none;
+}
+
+@media(min-width:768px) {
+  #wrapper {
+    padding-left: 0;
+  }
+  #wrapper {
+    padding-left: 250px;
+  }
+  #sidebar-wrapper {
+    width: 0;
+  }
+  #wrapper #sidebar-wrapper {
+    width: 250px;
+  }
+  #page-content-wrapper {
+    padding: 20px;
+    position: relative;
+  }
+  #wrapper #page-content-wrapper {
+    position: relative;
+    margin-right: 0;
+  }
+}
+
+.btn-dark {
+  border-radius: 0 !important;
+  background-color: #232323 !important;
+}
+
+.btn-primary {
+  border-radius: 0 !important;
+}
+
+.dropdown-menu {
+  border-radius: 0 !important;
+  background-color: #232323 !important;
+  color: #999999;
+}
+
+.modal-success {
+  border-radius: 0 !important;
+  background-color: #40B647 !important;
+  color: #fff;
+  text-align: center;
+}
+
+.btn-green {
+  background-color: #40B647 !important;
+  color: #fff;
+}
+
+.modal-fail {
+  border-radius: 0 !important;
+  background-color: #D90000;
+  color: #fff;
+  text-align: center;
+}
+
+.btn-red {
+  background-color: #D90000 !important;
+  color: #fff;
+}
+
+tr.spaceUnder>td {
+  padding-right: 10em !important;
+}
+
+.form-upload {
+  padding-right: 10em !important;
+}
