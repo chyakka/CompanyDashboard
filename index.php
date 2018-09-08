@@ -155,7 +155,7 @@ if(isset($_POST['newphonenr']))
 if(isset($_POST['mname']))
 {
     $tmpName = $_POST['mname'];
-    $getuserQuery = $con->prepare("SELECT * from users WHERE Username = '$tmpName'");
+    $getuserQuery = $con->prepare("SELECT Tech, HumanResources, Animation, Marketing from users WHERE Username = '$tmpName'");
     $getuserQuery->execute();
     $getuserData = $getuserQuery->fetch();
     if(isset($_POST['modifyFormPerms']))
@@ -296,7 +296,8 @@ if(isset($_POST['name']) && isset($_POST['word']) && isset($_POST['email']))
 
     <title>Dashboard</title>
 
-    <link href="includes/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="includes/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/custom-styles.css" rel="stylesheet" />
 
 </head>
@@ -848,9 +849,8 @@ if(isset($_POST['name']) && isset($_POST['word']) && isset($_POST['email']))
     <!-- /#wrapper -->
 
     <!-- Bootstrap core JavaScript -->
-    <script src="includes/vendor/jquery/jquery.min.js"></script>
-    <script src="includes/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" charset="utf-8" language="javascript" src="assets/js/jquery.dataTables.js"></script>
+    <script src="assets/jquery/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <?php if($success_modal):?>
     <script> $('#successModal').modal('show');</script>
