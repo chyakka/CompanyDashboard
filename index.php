@@ -227,7 +227,8 @@ if(isset($_POST['mname']))
 
 if(isset($_POST['name']) && isset($_POST['word']) && isset($_POST['email']))
 {
-    $tmpPW = strtoupper(hash("whirlpool", $_POST['word']));
+    //$tmpPW = strtoupper(hash("whirlpool", $_POST['word']));
+    $tmpPW = password_hash($_POST['word'], PASSWORD_DEFAULT);
     $tmpUser = $_POST['name'];
     $tmpEmail = $_POST['email'];
     if($_POST['formPerms'] == 'T') //set tech

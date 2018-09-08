@@ -11,20 +11,30 @@ if(isset($_POST['uname']) && isset($_POST['pword']))
 {
     if(!isset($_SESSION['uname']))
     {
-        $query = $con->prepare("SELECT `UserID`, `Username`, `Tech`, `Marketing`, `Animation`, `HumanResources`, `Exec`, `OnLeave` from `users` where `Username` = ? and `Password` = ?");
-        $query->execute(array($_POST['uname'], strtoupper(hash("whirlpool", $_POST['pword']))));
-        if($query->rowCount() > 0)
-        {
-            $data = $query->fetch();
+        checkPassword($_POST['uname'], $_POST['pword']);
+    }
+}
 
-            $_SESSION['uID'] = $data['UserID'];
-            $_SESSION['uUsername'] = $data['Username'];
-            $_SESSION['uTech'] = $data['Tech'];
-            $_SESSION['uMarketing'] = $data['Marketing'];
-            $_SESSION['uAnimation'] = $data['Animation'];
-            $_SESSION['uHumanResources'] = $data['HumanResources'];
-            $_SESSION['uExec'] = $data['Exec'];
-            $_SESSION['uOnLeave'] = $data['OnLeave'];
+function checkPassword($username, $input)
+{
+    $con = new PDO("mysql:host=localhost;dbname=dashboard", "root", "");
+    $query = $con->prepare("SELECT `UserID`, `Username`, `Password`, `Tech`, `Marketing`, `Animation`, `HumanResources`, `Exec`, `OnLeave` from `users` where `Username` = ?");
+    $query->execute(array($username));
+    if($query->rowCount() > 0)
+    {
+        $loginData = $query->fetch();
+        $hash = $loginData['Password'];
+        if(password_verify($input, $hash))
+        {
+            unset($hash, $loginData['Password']);
+            $_SESSION['uID'] = $loginData['UserID'];
+            $_SESSION['uUsername'] = $loginData['Username'];
+            $_SESSION['uTech'] = $loginData['Tech'];
+            $_SESSION['uMarketing'] = $loginData['Marketing'];
+            $_SESSION['uAnimation'] = $loginData['Animation'];
+            $_SESSION['uHumanResources'] = $loginData['HumanResources'];
+            $_SESSION['uExec'] = $loginData['Exec'];
+            $_SESSION['uOnLeave'] = $loginData['OnLeave'];
 
             echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">';  
             exit;
@@ -35,6 +45,7 @@ if(isset($_POST['uname']) && isset($_POST['pword']))
         }
     }
 }
+
 ?>
 <!DOCTYPE html>
 
